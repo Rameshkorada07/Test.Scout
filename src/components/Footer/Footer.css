@@ -1,0 +1,406 @@
+/* ===============================
+   Footer Styles
+   =============================== */
+
+   .footer-root {
+    height: 100vh;
+    background: #040404;
+    color: #eee;
+    padding: 48px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    font-family: "Roboto", sans-serif;
+  }
+  
+  /* Footer Bar */
+  .footer-bar-new {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    font-family: Roboto;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 12px;
+    line-height: 100%;
+    letter-spacing: 1%;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 1);
+    padding: 0 20px;
+  }
+  
+  .footer-link-left {
+    justify-self: start;
+    cursor: pointer;
+  }
+  
+  .footer-link-right {
+    justify-self: end;
+    cursor: pointer;
+  }
+  
+  .footer-center-new {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .footer-shuffle {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+  }
+  .footer-shuffle img {
+    width: 16px;
+    height: 16px;
+  }
+  
+  /* Footer Bottom */
+  .footer-bottom-new {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 0 20px;
+  }
+  
+  .footer-bottom-new a:hover {
+    opacity: 0.8;
+  }
+  
+  /* Footer Socials & Navigation */
+  .footer-socials-new,
+  .footer-nav-new {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  
+  /* Orbit / Collage */
+  .footer-orbit-wrapper {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  .footer-orbit-stage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+  
+  .footer-orbit-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 140px;
+    height: 180px;
+    margin-left: -70px;
+    margin-top: -90px;
+    perspective: 800px;
+    transition: opacity 0.2s ease-out;
+    will-change: transform;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+  
+  .footer-orbit-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+
+    transition: filter 0.3s ease, transform 0.3s ease;
+  }
+  
+  .footer-orbit-card:hover img {
+    filter: grayscale(0);
+    transform: scale(1.05);
+  }
+  
+  /* Skeleton / Revealed States */
+  .footer-orbit-card.is-skeleton img {
+    filter: grayscale(1);
+    opacity: 0.7;
+  }
+  
+  .footer-orbit-card.is-revealed img {
+    animation: flipIn 0.6s ease forwards;
+    backface-visibility: hidden;
+  }
+  
+  /* Flip Animation Keyframes */
+  @keyframes flipIn {
+    from {
+      transform: rotateY(90deg);
+      opacity: 0;
+    }
+    to {
+      transform: rotateY(0deg);
+      opacity: 1;
+    }
+  }
+  
+  /* Footer Brand Word */
+  .footer-brand {
+    font-family: Roboto;
+    font-weight: 300;
+    font-style: Light;
+    font-size: 450px;
+    line-height: 100%;
+    letter-spacing: -7%;
+    text-transform: uppercase;
+    width: 1471px; /* corrected */
+    height: 361px;
+    opacity: 1;
+    color: rgba(20, 20, 20, 1);
+  }
+
+/* Container for image and overlay */
+.footer-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 4px; /* Optional: smooth corners */
+}
+
+/* The gradient overlay - hidden by default */
+.footer-card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%; /* Height of the gradient area */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none; /* Let clicks pass through to the card if needed */
+}
+
+/* Show overlay and text on hover */
+.footer-orbit-card:hover .footer-card-overlay {
+  opacity: 1;
+}
+
+/* The location text */
+.footer-card-text {
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-family: "Roboto", sans-serif;
+}
+
+/* Ensure images fill the container */
+.footer-card-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* gradient */
+
+
+
+
+/* hover */
+
+
+
+
+
+  
+  
+  /* ===============================
+     Responsive Footer
+     =============================== */
+ /* ===============================
+   Updated Tablet Query (601px - 860px)
+   =============================== */
+@media (max-width: 890px) and (min-width: 601px) {
+  /* Fix the previous section overlap as you discovered */
+  
+
+  .footer-root {
+    height: 100vh;
+    padding: 48px 0px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+
+  /* Ensure the top bar is above everything */
+  .footer-bar-new {
+    position: relative;
+    z-index: 50; 
+    margin-top: 60px;
+
+    font-family: Roboto;
+font-weight: 400;
+font-style: Regular;
+font-size: 12px;
+line-height: 100%;
+letter-spacing: 1%;
+text-transform: uppercase;
+color: rgba(255, 255, 255, 1);
+
+  }
+
+  .footer-orbit-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer-orbit-stage {
+    /* We use a larger scale here to pull the cards closer together 
+       relative to the screen size, creating the overlap */
+    transform: translate(-50%, -50%) scale(0.75); 
+    width: 100%;
+    height: 100%;
+  }
+
+  .footer-orbit-card {
+    /* Slightly wider cards help them touch/overlap more easily */
+    width: 174px; 
+    height: 252px;
+    margin-left: -75px;
+    margin-top: -85px;
+    transition: transform 0.3s ease, z-index 0s;
+  }
+
+  /* Force the overlap by tightening the visual bounds */
+  .footer-orbit-card img {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Adds depth to the overlap */
+    width: 100%;
+    height: 100%;
+  }
+
+
+  .footer-bottom-new {
+    position: relative;
+    z-index: 50;
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+  
+ /* ===============================
+   Updated Mobile Query (Max 600px)
+   =============================== */
+   @media (max-width: 600px) {
+    .footer-root {
+      height: auto;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 40px 0; /* Add vertical breathing room */
+    }
+  
+    /* Center the Top Bar (Time & Shuffle) */
+    .footer-bar-new {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      padding: 0px 20px;
+      margin-bottom: 30px;
+    }
+  
+    .footer-bar-new .footer-link-left,
+    .footer-bar-new .footer-link-right {
+      display: none; 
+    }
+  
+    .footer-orbit-stage {
+      transform: translate(-50%, -50%) scale(0.65); 
+    }
+    .footer-orbit-card {
+      /* Slightly wider cards help them touch/overlap more easily */
+      width: 154px; 
+      height: 202px;
+      margin-left: -75px;
+      margin-top: -85px;
+      transition: transform 0.3s ease, z-index 0s;
+    }
+  
+    
+  
+    /* BOTTOM ALIGNMENT */
+    .footer-bottom-new {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px; /* Increased gap between rows for exact match */
+      width: 100%;
+      padding: 0px 20px 0px; /* Padding at the bottom */
+      margin-top: 0px;
+      color: rgba(255, 255, 255, 1);
+    }
+  
+    /* Row 1: Legal */
+    .footer-mobile-legal {
+      display: flex;
+      justify-content: center;
+      gap: 20px; 
+      width: 100%;
+    }
+  
+    /* Row 2: Socials */
+    .footer-socials-new {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      width: 100%;
+    }
+  
+    /* Row 3 & 4: Navigation (Matches your image alignment) */
+    .footer-nav-new {
+      display: flex;
+      flex-wrap: wrap; /* Allows #ANTICHAOS and PROBLEMS... to sit together if space permits, or wrap */
+      justify-content: center;
+      align-items: center;
+      gap: 20px ; /* Vertical and Horizontal gap */
+      width: 100%;
+      max-width: 320px; /* Constraints width so "ABOUT SCOUT" drops to its own line */
+      margin: 0 auto;
+    }
+  
+    /* Ensure the links stay white and sized correctly */
+    .footer-nav-new a, 
+    .footer-socials-new a, 
+    .footer-mobile-legal a {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      color: rgba(255, 255, 255, 1);
+      white-space: nowrap; /* Prevents text like "PROBLEMS & SOLUTIONS" from breaking */
+    }
+  }
+
+/* Hide the mobile-only legal links on Desktop */
+@media (min-width: 601px) {
+  .footer-mobile-legal {
+    display: none;
+  }
+}

@@ -1,0 +1,455 @@
+/* Scout Menu Redesign Styles */
+
+/* Main Wrapper */
+.scout-wrapper {
+  min-height: 100vh;
+  background: #000000;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Header Brand - Top Left */
+.header-brand {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.8s ease-out;
+  max-width: 280px;
+}
+
+.header-brand.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.brand-title {
+  color: rgba(255, 255, 255, 1);
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  line-height: 100%;
+  margin: 0 0 16px 0;
+font-style: Regular;
+font-size: 13px;
+letter-spacing: 1%;
+text-transform: uppercase;
+cursor: pointer;
+}
+
+.brand-subtitle {
+  width: 313px;
+  height: 102px;
+  color:rgba(255, 255, 255, 1);
+  font-family: 'Roboto', sans-serif;
+  margin-top: 40px;
+margin-bottom: -40px;
+  font-family: Roboto;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 18px;
+  line-height: 140%;
+  letter-spacing: 0%;
+  
+
+}
+
+.waitlist-btn {
+  background: rgba(255, 255, 255, 1);
+  color: #000000;
+  border: none;
+  width: 128px;
+  height: 36px;
+  border-radius: 4px;
+  font-family: 'Roboto', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  font-family: Roboto;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 14px;
+  line-height: 114.99999999999999%;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
+.waitlist-btn:hover {
+  background: #E0E0E0;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+/* Center Ellipse Wrapper */
+.ellipse-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  rotate: -12deg;
+}
+
+.ellipse-core {
+
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transform: rotateX(12deg);
+  border: 1px solid rgba(80, 80, 80, 1);
+  width: 1185.964142815638px;
+height: 381.2027689100491px;
+opacity: 1;
+border-width: 1.5px;
+
+}
+
+/* Ellipse Initializing State */
+.ellipse-core.initializing {
+  background: #000000;
+  position: relative;
+  
+}
+
+/* SVG Border Overlay */
+.ellipse-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.3s ease-out;
+}
+
+.ellipse-border.fade-away {
+  opacity: 0;
+}
+
+/* Progress Counter */
+.progress-counter {
+  color: #808080;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  animation: fadeIn 0.3s ease-in;
+  rotate: 12deg;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Ellipse Initialized State with Category Text */
+.ellipse-core.initialized {
+  background: #000000;
+  border: 2px solid rgba(80, 80, 80, 1);
+}
+
+.category-display-area {
+  max-width: 210px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  rotate: 12deg;
+  opacity: 0;
+  animation: contentFadeIn 0.8s ease-out 0.3s forwards;
+}
+
+@keyframes contentFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.category-text {
+  color: #FFFFFF;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+
+font-style: Regular;
+line-height: 100%;
+letter-spacing: 0.5%;
+text-transform: uppercase;
+
+}
+
+/* Stats Section - Bottom Right */
+.stats-section {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  text-align: right;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out 0.3s;
+}
+
+.stats-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stat-item {
+  margin-bottom: 20px;
+}
+
+.stat-item:last-child {
+  margin-bottom: 0;
+}
+
+.stat-label {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  margin-bottom: 4px;
+
+font-style: Regular;
+font-size: 16px;
+line-height: 100%;
+letter-spacing: 0%;
+color: rgba(240, 240, 240, 1);
+}
+
+.stat-value {
+  color: #FFFFFF;
+  font-family: 'Roboto', sans-serif;
+
+font-weight: 400;
+font-style: Regular;
+font-size: 60px;
+line-height: 100%;
+letter-spacing: -4%;
+
+}
+
+/* Footer Links - Bottom Left */
+.footer-links {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  gap: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out 0.4s;
+}
+
+.footer-links.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.footer-link {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 1);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  padding: 0;
+
+
+font-style: Regular;
+font-size: 13px;
+line-height: 100%;
+letter-spacing: 1%;
+text-align: right;
+text-transform: uppercase;
+}
+
+.footer-link:hover {
+  color: #808080;
+}
+
+/* Close Button - Top Right */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+
+  cursor: pointer;
+  transition: all 0.2s ease-out 0.2s;
+  padding: 0;
+
+
+  color: rgba(255, 255, 255, 1);
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  line-height: 100%;
+  margin: 0 0 16px 0;
+font-style: Regular;
+font-size: 13px;
+letter-spacing: 1%;
+text-transform: uppercase;
+}
+
+.close-btn.visible {
+  opacity: 1;
+}
+
+.close-btn:hover {
+  color: #808080;
+}
+
+
+
+
+
+/* ---------------------------------------------------------------- */
+/* Tablet Responsive (890px to 601px) */
+/* ---------------------------------------------------------------- */
+@media (max-width: 890px) and (min-width: 601px) {
+  .header-brand {
+    top: 24px;
+    left: 24px;
+    max-width: 260px;
+  }
+
+  .brand-subtitle {
+    font-size: 16px;
+    width: 280px;
+  }
+  .brand-subtitle {
+  margin-bottom: -40px;
+  }
+
+  .category-text {
+    font-size: 16px;
+  }
+
+  .stats-section {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .stat-value {
+    font-size: 52px;
+  }
+}
+
+/* ---------------------------------------------------------------- */
+/* Large Mobile (600px to 400px) */
+/* ---------------------------------------------------------------- */
+@media (max-width: 600px) and (min-width: 400px) {
+  .header-brand {
+    top: 20px;
+    left: 20px;
+    max-width: 240px;
+  }
+
+  .brand-subtitle {
+    font-size: 16px;
+    width: 260px;
+    margin-top: 20px;
+  }
+
+  /* Ellipse adjustment for vertical mobile screens */
+  .ellipse-wrapper {
+    transform: scale(0.85);
+  }
+
+
+
+  /* Stats are visible here */
+  .stats-section {
+    display: block; 
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .stat-value {
+    font-size: 40px;
+  }
+
+  /* Footer Logic: Hide Socials, keep Contact */
+  .footer-links .footer-link:nth-child(1),
+  .footer-links .footer-link:nth-child(2) {
+    display: none;
+  }
+}
+
+/* ---------------------------------------------------------------- */
+/* Small Mobile (399px and below) */
+/* ---------------------------------------------------------------- */
+@media (max-width: 399px) {
+  .header-brand {
+    top: 16px;
+    left: 16px;
+    max-width: 220px;
+  }
+
+  .brand-title {
+    font-size: 11px;
+  }
+
+  .brand-subtitle {
+    font-size: 14px;
+    width: 220px;
+    height: auto;
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+
+  .ellipse-wrapper {
+    transform: scale(0.7);
+  }
+
+
+  /* Category text smaller for small screens */
+  .category-text {
+    font-size: 13px;
+  }
+
+  /* Stats Section: Visible but more compact */
+  .stats-section {
+    display: block; 
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .stat-value {
+    font-size: 40px;
+  }
+
+  .stat-label {
+    font-size: 13px;
+  }
+
+  /* Footer Logic: Hide Socials, keep Contact */
+  .footer-links .footer-link:nth-child(1),
+  .footer-links .footer-link:nth-child(2) {
+    display: none;
+  }
+
+  .footer-links {
+    bottom: 16px;
+    left: 16px;
+  }
+}
+

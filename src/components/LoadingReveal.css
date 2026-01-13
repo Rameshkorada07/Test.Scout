@@ -1,0 +1,1255 @@
+/* Loading and Reveal Animation Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+/* Main Content Container */
+.reveal-container {
+  height: 100vh;
+  background: #ffffff;
+  position: relative;
+  overflow-x: hidden;
+  display: flex;
+width: 100%;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+  padding: 0;
+}
+
+/* Top Left Brand */
+.brand-text {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.8s ease-out;
+}
+.brand-text p {
+  color: #000;
+font-family: 'Roboto', sans-serif;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 140%; /* 19.6px */
+letter-spacing: 0.28px;
+}
+.brand-text p button {
+  color: #000;
+font-family: 'Roboto', sans-serif;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 140%;
+letter-spacing: 0.28px;
+text-decoration-line: underline;
+text-decoration-style: dotted;
+text-decoration-skip-ink: auto;
+text-decoration-thickness: 12%;
+text-underline-offset: 16%;
+text-underline-position: from-font;
+}
+
+.brand-text.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.brand-text h1 {
+  color: #000;
+font-family: 'Roboto', sans-serif;
+font-size: 80px;
+font-style: normal;
+font-weight: 300;
+line-height: 100%; /* 80px */
+letter-spacing: -5.6px;
+text-transform: uppercase;
+}
+
+/* Center Oval Container */
+.oval-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  rotate: -12deg;
+  flex: 1;
+}
+
+/* Expansion state for the container */
+.oval-container.expanding {
+  pointer-events: none;
+}
+
+.oval-shape {
+  width: 1400px;
+  height: 450px;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transform: rotateX(15deg);
+}
+
+/* Oval expansion animation after loading completes */
+.oval-container.expanding .oval-shape {
+  animation: ovalExpand 0.8s ease-out forwards;
+}
+
+/* Oval Loading State */
+.oval-shape.loading {
+  background: #ffffff;
+  position: relative;
+}
+
+/* SVG Border Overlay */
+.oval-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.3s ease-out;
+}
+
+/* Stroke expansion to match the fill oval */
+.oval-container.expanding .oval-svg {
+  animation: ovalStrokeExpand 0.8s ease-out forwards;
+}
+
+.oval-svg.fade-out {
+  opacity: 0;
+}
+
+/* Loading Percentage */
+.loading-percentage {
+  color: #292929;
+font-family: Roboto;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 140%; /* 22.4px */
+  animation: fadeIn 0.3s ease-in;
+  rotate: 12deg;
+}
+
+/* Keep the percentage visible during the expansion */
+.oval-container.expanding .loading-percentage {
+  animation: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Oval Loaded State with Image */
+.oval-shape.loaded {
+  background: #ffffff;
+  border: none;
+}
+
+/* Expansion keyframes */
+@keyframes ovalExpand {
+  0% {
+    opacity: 1;
+    transform: rotateX(15deg) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: rotateX(15deg) scale(3);
+  }
+}
+
+@keyframes ovalStrokeExpand {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(3);
+  }
+}
+
+
+/* 1. Stop the parent from scaling everything inside it */
+.oval-container.expanding .oval-shape {
+  /* Remove the scale animation from here */
+  animation: fadeOutOnly 0.8s ease-out forwards; 
+}
+
+/* 2. Create a specific animation for the background fill if you want it to grow */
+/* We will add a pseudo-element to the shape to handle the expansion fill */
+.oval-shape.loaded::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ffffff;
+  z-index: -1;
+}
+
+.oval-container.expanding .oval-shape::after {
+  animation: ovalStrokeExpand 0.8s ease-out forwards;
+}
+
+/* 3. Keep the percentage still and just fade it out */
+.oval-container.expanding .loading-percentage {
+  animation: fadeOutOnly 0.4s ease-out forwards;
+  /* Ensure it doesn't scale */
+  transform: scale(1); 
+}
+
+/* New Keyframe for text and main container */
+@keyframes fadeOutOnly {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Keep your existing stroke expansion as is, it's already targeted correctly */
+@keyframes ovalStrokeExpand {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(3);
+  }
+}
+
+/* ===========================
+   HERO LAYOUT AFTER REVEAL
+   =========================== */
+
+.hero-wrapper {
+  width: 100%;
+  margin: 20px 20px;
+padding: 0px;
+  display: flex;
+  flex-direction: column;
+
+  gap: 30px;
+  justify-content: space-between;
+}
+
+.hero-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+.hero-logo {
+  font-weight: 400;
+  color: #000;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.hero-menu {
+  border: none;
+  background: transparent;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: #161616;
+  font-weight: 400;
+  padding: 0;
+  position: relative;
+  display: inline-block;
+}
+
+/* Hover Oval Animation Styles */
+.hover-oval-svg {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.hero-logo:hover .hover-oval-svg,
+.hero-menu:hover .hover-oval-svg {
+  opacity: 1;
+}
+
+.logo-hover-oval {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 60px;
+}
+
+.menu-hover-oval {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90px;
+  height: 50px;
+}
+
+.hero-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+
+  justify-content: space-between;
+}
+
+.hero-headline {
+width: 528px;
+max-height: 233px;
+  margin-top: -60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-headline h1 {
+  font-family: Roboto;
+font-weight: 400;
+font-style: Regular;
+font-size: 45px;
+line-height: 95%;
+letter-spacing: -4%;
+text-align: center;
+text-transform: uppercase;
+
+  margin-bottom: 20px;
+  margin-top: 0;
+  color: #161616;
+  font-family: 'Roboto', sans-serif;
+}
+
+.hero-headline p {
+  font-size: 18px;
+  line-height: 1.5;
+  color: #161616;
+  font-weight: 400;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  width: 262px;
+  text-align: center;
+}
+
+.hero-center {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.hero-label {
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #161616;
+  font-weight: 400;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2;
+  flex-shrink: 0;
+  height: 280px;
+}
+
+.hero-label-left {
+  order: 1;
+}
+
+.hero-label-right {
+  order: 3;
+}
+
+.hero-image-orbit {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 60px;
+  position: relative;
+  order: 2;
+  flex-shrink: 0;
+  height: 280px;
+  justify-content: center;
+}
+
+.hero-location {
+  font-size: 14px;
+  color: #161616;
+  font-weight: 400;
+  white-space: nowrap;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+  display: block;
+}
+
+.hero-location-left {
+  order: 1 !important;
+  margin-right: 80px;
+  width: 220px;
+}
+
+.hero-location-right {
+  order: 3 !important;
+  margin-left: 80px;
+  width: 220px;
+}
+
+/* ------------------------------------ */
+.hero-image-stack {
+  position: relative;
+  width: 140px;
+  height: 207px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  order: 2 !important;
+  flex-shrink: 0;
+}
+
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.hero-orbit-svg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero-orbit-svg.front {
+  z-index: 3;
+  pointer-events: none;
+}
+
+.hero-orbit-ellipse {
+  fill: none;
+  stroke: black;
+  stroke-width: 1.5;
+}
+
+/* --------------------------------- */
+
+
+.hero-image.fade-in {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.hero-image.fade-out {
+  opacity: 0;
+  transition: opacity 0.7s ease-in-out;
+}
+
+.hero-orbit-svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 280px;
+  height: 160px;
+  transform: translate(-50%, -50%) rotate(-12deg);
+  pointer-events: none;
+}
+
+.hero-orbit-ellipse {
+  fill: none;
+  stroke: #000000;
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+}
+
+.hero-cta-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-cta {
+  min-width: 310px;
+  padding: 16px 100px;
+  border-radius: 5px;
+  border: none;
+  background: #000;
+  color: #fff;
+  font-size: 16px;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  font-weight: 500;
+  font-family: 'Roboto', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.hero-cta:hover {
+  background: #333;
+}
+
+.hero-cta-sub {
+  font-size: 16px;
+  color: #000;
+  font-weight: 400;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+.oval-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.oval-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  transform: scale(1);
+}
+
+
+.oval-image.first-image.active {
+  animation: imageZoomOut 0.4s ease-out forwards;
+}
+
+.oval-image.active {
+  opacity: 1;
+}
+
+
+
+@keyframes imageZoomOut {
+  0% {
+    opacity: 0;
+    transform: scale(0.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* CO-WORKING Button */
+.co-working-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  opacity: 0;
+  animation: buttonFadeIn 0.5s ease-out forwards;
+  rotate: 12deg;
+  cursor: pointer;
+}
+
+@keyframes buttonFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.button-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.button-text {
+  position: relative;
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+  line-height: 50px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  pointer-events: none;
+  width: 160px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Bottom Right Content */
+.bottom-content {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  text-align: left;
+  max-width: 320px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out 0.3s;
+}
+
+.bottom-content.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.description {
+  color: #292929;
+font-family: 'Roboto', sans-serif;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 140%;
+margin-bottom: 12px;
+}
+
+
+
+.waitlist-text-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+}
+
+.waitlist-text {
+  color: #292929;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  letter-spacing: 0.28px;
+  text-decoration: none; /* remove default underline */
+  cursor: pointer;
+
+  /* Create a dotted underline using background */
+  background-image: repeating-linear-gradient(to right, #292929 0 2px, transparent 2px 4px);
+  background-position: 0 100%; /* position at bottom */
+  background-size: 6px 2px; /* 6px width for each repeat, 2px height */
+  background-repeat: repeat-x;
+  padding-bottom: 2px;
+
+  /* Animate the dots */
+  animation: moveDots 1s linear infinite;
+}
+
+@keyframes moveDots {
+  0% {
+    background-position: 0 100%;
+  }
+  100% {
+    background-position: 6px 100%;
+  }
+}
+
+.hero-cta-section {
+  margin-left: 40px;
+}
+
+/* CTA Button */
+.cta-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  min-width: 310px;
+  max-height: 36px;
+  background: #000000;
+  border: 2px solid #000000;
+  width: 310px;
+  height: 36px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  margin-bottom: 8px;
+  color: #F7F7F7;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+  overflow: hidden;
+
+  font-family: Roboto;
+font-weight: 500;
+font-style: Medium;
+font-size: 16px;
+line-height: 114.99999999999999%;
+letter-spacing: 0%;
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+  z-index: 0;
+}
+
+.cta-button span {
+  position: relative;
+  z-index: 2;
+  transition: opacity 0.3s ease;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.cta-button:hover {
+  border-color: #000000;
+}
+
+.cta-button:hover::before {
+  transform: translateY(0);
+}
+
+.cta-button:hover span {
+  opacity: 1;
+}
+
+.cta-button:hover .arrows-container {
+  animation: moveArrows 2s linear infinite;
+  opacity: 1;
+}
+
+.cta-button:hover .arrow {
+  color: #000000 !important;
+}
+
+.cta-button:active {
+  transform: translateY(0);
+}
+
+.arrows-container {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.arrow {
+  font-size: 28px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  color: #000000;
+}
+
+@keyframes moveArrows {
+  0% {
+    transform: translateY(-50%) translateX(0);
+  }
+  100% {
+    transform: translateY(-50%) translateX(20px);
+  }
+}
+
+
+/* Tablet 810 - 601 */
+
+@media (max-width: 890px) and (min-width: 601px) {
+  .hero-header {
+    padding: 0px 0px;
+  }
+
+  /* Main spacing */
+  .hero-main {
+    gap: 127px;
+    padding: 0px;
+  }
+  .hero-headline {
+    margin-top: -65px;
+    width: 440px;
+    height: 200px;
+    margin-bottom: 0px;
+  }
+
+  .hero-headline h1 {
+    font-family: Roboto;
+font-weight: 400;
+font-style: Regular;
+font-size: 40px;
+line-height: 95%;
+letter-spacing: -1.96px;
+text-align: center;
+text-transform: uppercase;
+
+  }
+
+  .hero-headline p {
+    width: 240px;
+    height: 66px;
+    font-family: Roboto;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 16px;
+    line-height: 140%;
+    letter-spacing: 0%;
+    text-align: center;
+    
+  }
+
+  /* Center section becomes positional */
+  .hero-center {
+    position: relative;
+    justify-content: center;
+  }
+
+  .hero-image-orbit {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Image size */
+  .hero-image-stack {
+    width: 120px;
+    height: 180px;
+    z-index: 2;
+  }
+
+  .hero-orbit-svg {
+    width: 249.05248158796397;
+height: 80.05257628312188;
+  }
+
+  /* --- TOP text (Stockholm) --- */
+  .hero-location-left {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    font-family: Roboto;
+font-weight: 400;
+font-style: Regular;
+font-size: 14px;
+line-height: 130%;
+letter-spacing: 1%;
+text-align: center;
+color: rgba(22, 22, 22, 1);
+
+  }
+
+  /* --- BOTTOM text (Sweden) --- */
+  .hero-location-right {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    font-family: Roboto;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 14px;
+    line-height: 130%;
+    letter-spacing: 1%;
+    text-align: center;
+    color: rgba(22, 22, 22, 1);
+  }
+
+  /* --- LEFT side label --- */
+  .hero-label-left,
+  .hero-label-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: Roboto;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 14px;
+    line-height: 130%;
+    letter-spacing: 1%;
+    
+  }
+
+  .hero-label-left {
+    left: 0;
+  }
+
+  .hero-label-right {
+    right: 0;
+  }
+
+  /* CTA */
+  .hero-cta {
+    min-width: 260px;
+    padding: 14px 72px;
+  }
+
+  .hero-cta-sub {
+    font-size: 14px;
+  }
+  .hero-cta-section {
+    margin-left: 0px;
+  }
+}
+
+
+/* Long Mobile 600 - 400 */
+
+@media (max-width: 600px) and (min-width: 400px) {
+
+  /* ---------- Header to headline gap ---------- */
+  .hero-headline {
+    margin-top: 0px;
+    width: 360px;
+height: 238px;
+gap: 0px;
+  }
+
+
+  .hero-main {
+    gap: 48px;
+  }
+
+  /* ---------- Headline ---------- */
+  .hero-headline h1 {
+    font-family: Roboto;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 40px;
+    line-height: 95%;
+    letter-spacing: -1.96px;
+    text-align: center;
+    text-transform: uppercase;
+    color: rgba(22, 22, 22, 1);
+    
+  }
+
+  .hero-headline p {
+    font-family: Roboto;
+font-weight: 400;
+font-style: Regular;
+font-size: 16px;
+line-height: 140%;
+letter-spacing: 0%;
+text-align: center;
+color: rgba(22, 22, 22, 1);
+    width: 240px;
+  }
+
+  /* ---------- HIDE SIDE TEXTS (CRITICAL FIX) ---------- */
+  /* Hide "More Exploration" (first div) */
+  .hero-center > div:first-child {
+    display: none;
+  }
+
+  /* Hide "Less Chaos" */
+  .hero-label-right {
+    display: none;
+  }
+
+  /* ---------- Center image section ---------- */
+  .hero-center {
+    justify-content: center;
+  }
+
+  .hero-image-orbit {
+    flex-direction: column;
+    gap: 12px;
+    height: auto;
+  }
+
+  .hero-image-stack {
+    width: 140.99px;
+    height: 207px;
+  }
+
+  .hero-orbit-svg {
+    width: 249.05248158796397;
+height: 80.05257628312188;
+  }
+
+  /* ---------- City & Country ---------- */
+  .hero-location-left,
+  .hero-location-right {
+    position: static;
+    transform: none;
+    margin: 0;
+    font-family: Roboto;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 14px;
+    line-height: 130%;
+    letter-spacing: 1%;
+    text-align: center;
+  }
+
+  .hero-location-left {
+    margin-bottom: 48px;
+  }
+
+  .hero-location-right {
+    margin-top: 48px;
+  }
+
+  /* ---------- CTA ---------- */
+  .hero-cta {
+    min-width: 310px;
+    padding: 24px 36px;
+    font-family: Roboto;
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 16px;
+    line-height: 114.99999999999999%;
+    letter-spacing: 0%;
+    text-align: center;
+  }
+
+  .hero-cta-sub {
+    font-family: Roboto;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 14px;
+    line-height: 130%;
+    letter-spacing: 1%;
+    text-align: center;
+    
+  }
+  .hero-cta-section {
+    margin-left: 0px;
+  }
+}
+
+
+
+/* Small Mobile 399 - 300 */
+@media (max-width: 399px) and (min-width: 300px) {
+
+    /* ---------- Header to headline gap ---------- */
+    .hero-headline {
+      margin-top: 0px;
+      width: 288px;
+  height: 214px;
+    }
+    
+    
+    /* ---------- Headline ---------- */
+    .hero-headline h1 {
+      font-family: Roboto;
+font-weight: 400;
+font-style: Regular;
+font-size: 32px;
+line-height: 100%;
+letter-spacing: -1.16px;
+text-align: center;
+text-transform: uppercase;
+color: rgba(22, 22, 22, 1);
+  
+  ;
+    }
+  
+    .hero-headline p {
+      font-family: Roboto;
+      font-weight: 400;
+      font-style: Regular;
+      font-size: 16px;
+      line-height: 140%;
+      letter-spacing: 0%;
+      text-align: center;
+      width: 240px;
+      height: 66px;
+      
+    }
+  
+    /* ---------- HIDE SIDE TEXTS (CRITICAL FIX) ---------- */
+    /* Hide "More Exploration" (first div) */
+    .hero-center > div:first-child {
+      display: none;
+    }
+  
+    /* Hide "Less Chaos" */
+    .hero-label-right {
+      display: none;
+    }
+  
+    /* ---------- Center image section ---------- */
+    .hero-center {
+      justify-content: center;
+    }
+  
+    .hero-image-orbit {
+      flex-direction: column;
+      gap: 32px;
+    }
+  
+
+  
+    .hero-orbit-svg {
+      width: 249.05248158796397;
+height: 80.05257628312188;
+    }
+  
+    /* ---------- City & Country ---------- */
+    .hero-location-left,
+    .hero-location-right {
+      position: static;
+      transform: none;
+      margin: 0;
+      font-family: Roboto;
+font-weight: 400;
+font-style: Regular;
+font-size: 14px;
+line-height: 130%;
+letter-spacing: 1%;
+text-align: center;
+    }
+  
+
+    /* ---------- CTA ---------- */
+    .cta-button {
+      width: 280px;
+      height: 36px;
+      font-family: Roboto;
+font-weight: 500;
+font-style: Medium;
+font-size: 16px;
+line-height: 114.99999999999999%;
+letter-spacing: 0%;
+text-align: center;
+
+    }
+  
+    .hero-cta-sub {
+      font-family: Roboto;
+      font-weight: 400;
+      font-style: Regular;
+      font-size: 14px;
+      line-height: 130%;
+      letter-spacing: 1%;
+      text-align: center;  
+    }
+
+    .hero-cta-section {
+      margin-left: 0px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .reveal-container {
+  background-color: #ffffff;
+  transition: background-color 0.8s ease;
+} 
+
+
+.oval-container {
+  transition: transform 1.2s cubic-bezier(0.85, 0, 0.15, 1), 
+              opacity 0.8s cubic-bezier(0.85, 0, 0.15, 1);
+  transform-origin: center center;
+  will-change: transform, opacity;
+}
+
+
+.oval-container.expanding {
+  transform: scale(6); 
+  opacity: 0;
+}
+
+
+.loading-percentage {
+  transition: opacity 0.4s ease;
+}
+.expanding .loading-percentage {
+  opacity: 0;
+}
+
+
+.hero-wrapper {
+  animation: heroRevealEntrance 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes heroRevealEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+} */
+
+
+
+
+

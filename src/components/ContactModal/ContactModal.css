@@ -1,0 +1,241 @@
+/* Existing overlay styles */
+.contact-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  backdrop-filter: blur(4px);
+}
+
+/* Animations */
+@keyframes slideDownIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUpOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+.animate-in {
+  animation: slideDownIn 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.animate-out {
+  animation: slideUpOut 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Modal and Content Styles */
+.contact-modal {
+  background: #ffffff;
+  position: relative;
+  color: #000;
+}
+.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 404px;
+  height: 439px;
+  padding: 20px;
+  border-radius: 2px;
+}
+.success-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 404px;
+  height: 439px;
+  padding: 20px;
+  border-radius: 2px;
+}
+
+.founder-sig {
+  font-family: Roboto;
+font-weight: 400;
+font-style: Regular;
+font-size: 16px;
+line-height: 150%;
+letter-spacing: 0%;
+color: rgba(87, 87, 87, 1);
+margin-top: 10px;
+}
+
+/* Keep your existing .contact-title, .contact-description, 
+   .contact-footer, and button styles here... */
+  
+  .contact-title {
+    font-family: Roboto;
+font-weight: 400;
+font-style: Regular;
+font-size: 20px;
+line-height: 130%;
+letter-spacing: 0%;
+color: rgba(22, 22, 22, 1);
+    margin-bottom: 8px;
+  }
+  
+  .contact-description {
+    font-family: Roboto;
+font-weight: 400;
+font-style: Regular;
+font-size: 16px;
+line-height: 150%;
+letter-spacing: 0%;
+color: rgba(87, 87, 87, 1);
+    margin-bottom: 20px;
+  }
+  
+  .contact-footer {
+    margin-top: 60px;
+  }
+  
+  .contact-email-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .email-label {
+    font-family: Roboto;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 16px;
+    line-height: 130%;
+    letter-spacing: 0%;
+    color: rgba(22, 22, 22, 1);
+  }
+  
+  .email-value {
+    font-family: Roboto;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 16px;
+    line-height: 130%;
+    letter-spacing: 0%;
+    color: rgba(87, 87, 87, 1);
+  }
+  
+  .contact-copy-btn {
+    width:364px;
+    height: 36px;
+    background: #000;
+    color: rgba(255, 255, 255, 1);
+    border: none;
+    font-family: Roboto;
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 16px;
+    line-height: 114.99999999999999%;
+    letter-spacing: 0%;
+    text-align: center;
+    
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  
+  .contact-copy-btn:hover {
+    opacity: 0.8;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+
+  @media (max-width: 890px) and (min-width: 610px) {
+    .contact, .success-view {
+      width: 384px; /* Scaled down slightly */
+      height: auto; /* Allow content to dictate height */
+      min-height: 407px;
+      padding: 24px;
+    }
+  
+    .contact-title {
+      font-size: 18px; /* Slightly tighter for tablet */
+    }
+  
+    .contact-copy-btn {
+      width: 100%; /* Fill container */
+    }
+  }
+
+  @media (max-width: 609px) and (min-width: 400px) {
+    .contact, .success-view {
+      width: 360px; /* Responsive width */
+      height: 399px;
+      padding: 20px;
+    }
+  
+    .contact-title {
+      font-size: 18px; /* */
+    }
+  
+    .contact-description {
+      font-size: 14px; /* Improved readability on mobile */
+    }
+  
+    .contact-copy-btn {
+      width: 100%;
+      height: 40px; /* Slightly taller for better touch target */
+    }
+  
+    .contact-footer {
+      margin-top: 40px; /* Reduced spacer */
+    }
+  }
+
+  @media (max-width: 399px) {
+    .contact, .success-view {
+      width: 280px; /* Maximize space */
+      height: 478px;
+      padding: 20px;
+      height: auto;
+    }
+  
+    .contact-title {
+      font-size: 17px; /* */
+      margin-bottom: 12px;
+    }
+  
+    .contact-description {
+      font-size: 14px;
+      line-height: 140%; /* */
+    }
+  
+    .email-label, .email-value {
+      font-size: 14px; /* */
+    }
+  .contact-email-row {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+    .contact-copy-btn {
+      width: 100%;
+      font-size: 14px; /* */
+    }
+  
+    .founder-sig {
+      font-size: 14px; /* */
+      margin-bottom: 24px;
+    }
+  }

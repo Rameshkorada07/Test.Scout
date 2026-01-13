@@ -1,0 +1,258 @@
+.values-section {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    background: #fff;
+  }
+  
+  /* Top Left Brand */
+  .top-left-brand {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #000;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 100%; /* 20px */
+text-transform: uppercase;
+  }
+  
+  /* Top Right Link */
+  .top-right-link {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+  
+  .top-right-link p {
+    color: #000;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 140%; /* 19.6px */
+letter-spacing: 0.28px;
+  }
+  .top-right-link p button {
+    color: #000;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 140%;
+letter-spacing: 0.28px;
+text-decoration-line: underline;
+text-decoration-style: dotted;
+text-decoration-skip-ink: auto;
+text-decoration-thickness: 12%;
+text-underline-offset: 16%;
+text-underline-position: from-font;
+  }
+  
+  /* Center Content */
+  .values-content {
+    max-width: 650px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+  }
+  
+  /* Subheading */
+  .values-subheading {
+    color: #292929;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 22.4px */
+    letter-spacing: 0.32px;
+    text-transform: capitalize;
+  }
+  
+  /* Heading */
+  .values-heading {
+    color: #000;
+    text-align: center;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 100%; /* 64px */
+    letter-spacing: -3.2px;
+    text-transform: capitalize;
+  }
+  
+  .values-heading p {
+    margin: 0;
+  }
+  
+  /* Progress Bar */
+  .progress-container2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 64px;
+  }
+  
+  .progress-bar2 {
+    flex: 1;
+    max-width: 140px;
+    height: 4px;
+    background: #e0e0e0;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  
+  .progress-fill2 {
+    height: 100%;
+    background: #000;
+  }
+  
+  .progress-value2 {
+    font-size: 14px;
+    font-weight: 500;
+    color: #000;
+  }
+  
+  /* Button */
+  .values-button {
+    margin: 0 auto;
+    margin-top: -52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 32px;
+    border-radius: 500px;
+    background: #000;
+    color: #f7f7f7;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+    border: none;
+  }
+  
+  .values-button:hover {
+    opacity: 0.9;
+  }
+  
+  /* Hashtag */
+  .values-hashtag {
+    color: #242424;
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: -44px;
+  }
+  
+
+  @media (min-width: 300px) and (max-width: 600px) {
+    .values-section {
+      position: relative;
+      min-height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+    }
+  
+    .values-content {
+      flex: 1;
+      text-align: left;
+      align-items: flex-start;
+      display: flex;
+      flex-direction: column;
+      gap: 0px;
+      margin-left: -20px;
+      margin-top: 40px; /* below SCOUT/nav */
+      padding-bottom: 180px; /* leaves space for bottom items */
+    }
+  
+    .values-subheading {
+      font-size: 16px;
+      text-align: left;
+    }
+  
+    .values-heading {
+      font-size: 30px;
+      font-weight: 400;
+      line-height: 100%; /* 36px */
+      letter-spacing: -1.8px;
+      text-transform: capitalize;
+      text-align: left;
+    }
+  
+    .values-heading p {
+      margin: 10px 0;
+    }
+  
+    /* Progress Bar fixed near bottom */
+    .progress-container2 {
+      position: fixed;
+      bottom: 120px; /* space above button */
+      left: 0;
+      right: 0;
+      padding: 0 20px; /* optional spacing from edges */
+      display: flex;
+      justify-content: center; /* centers the children */
+      gap: 8px;
+      box-sizing: border-box;
+      margin-bottom: 16px;
+    }
+  
+    .progress-bar2 {
+      flex: 1; /* takes full available width */
+      max-width: none; /* remove previous max-width */
+      height: 4px;
+      background: #e0e0e0;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+  
+    .progress-fill2 {
+      height: 100%;
+      background: #000;
+    }
+  
+    .progress-value2 {
+      font-size: 14px;
+      font-weight: 500;
+      color: #000;
+    }
+  
+    /* Button fixed just above hashtag */
+    .values-button {
+      position: fixed;
+      left: 20px;
+      right: 20px;
+      bottom: 60px;
+      width: auto;
+      padding: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      border-radius: 500px;
+      background: #000;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  
+    /* Hashtag centered at very bottom */
+    .values-hashtag {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 20px;
+      text-align: center;
+      font-size: 16px;
+    }
+  }
+  
+
+  

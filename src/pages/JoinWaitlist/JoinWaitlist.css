@@ -1,0 +1,1092 @@
+.waitlist-section {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    position: relative; /* ⬅ make this the relative container for absolute children */
+}
+.waitlist-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 40%;
+    padding: 20px;
+}
+.top-right-link {
+    position: absolute; /* ⬅ absolute positioning relative to waitlist-section */
+    top: 20px;          /* distance from top of section */
+    right: 20px;        /* distance from right of section */
+    font-size: 14px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.top-right-link button {
+    color: #FFF;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 140%;
+letter-spacing: 0.28px;
+text-decoration-line: underline;
+text-decoration-style: dotted;
+text-decoration-skip-ink: auto;
+text-decoration-thickness: 12%;
+text-underline-offset: 16%;
+text-underline-position: from-font;
+}
+.heading {
+    color: rgba(22, 22, 22, 1);
+    font-family: Roboto;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 13px;
+    line-height: 100%;
+    letter-spacing: 1%;
+    text-align: justify;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.waitlist-form {
+    width: 100%;
+}
+.waitlist-form form {
+display: flex;
+flex-direction: column;
+gap: 4px;
+align-items: center;
+}
+.waitlist-form form input {
+
+    display: flex;
+padding: 12px;
+align-items: center;
+align-self: stretch;
+border-radius: 4px;
+border: 1px solid #F0F0F0;
+background: #FCFCFC;
+}
+.waitlist-form form {
+  align-items: stretch;   /* stop centering children */
+}
+
+.waitlist-form form > input,
+.waitlist-form form button,
+.nomad-input-wrapper {
+  width: 70%;       /* single, clean centering */
+}
+
+
+
+.waitlist-form form input::placeholder {
+    color: #787878;
+font-family: Roboto;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 130%; /* 18.2px */
+text-transform: capitalize;
+}
+.waitlist-form form button {
+    width: 70%;
+    display: flex;
+padding: 12px 36px;
+justify-content: center;
+align-items: center;
+gap: 8px;
+align-self: stretch;
+border-radius: 2px;
+background: #000;
+color: #F7F7F7;
+font-family: Roboto;
+font-weight: 500;
+font-style: Medium;
+font-size: 16px;
+line-height: 114.99999999999999%;
+letter-spacing: 0%;
+text-align: center;
+
+}
+.waitlist-bottom  {
+    width: 253px;
+}
+.waitlist-bottom p {
+    width: 253px;
+    color: #292929;
+font-family: Roboto;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 150%; /* 24px */
+}
+.waitlist-bottom span {
+  display: none;
+}
+
+  .thank-you {
+    max-width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .thank-you h1 {
+    color: rgba(0, 0, 0, 1);
+    font-family: Roboto;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 64px;
+    line-height: 100%;
+    letter-spacing: -5%;
+    text-transform: capitalize;
+    
+  }
+  .thank-you p {
+    color: rgba(41, 41, 41, 1);
+    font-family: Roboto;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 16px;
+    line-height: 140%;
+    letter-spacing: 0%;
+  }
+  .founder-name {
+    color: rgba(41, 41, 41, 1);
+    font-family: Roboto;
+font-weight: 400;
+font-style: Regular;
+font-size: 16px;
+line-height: 140%;
+letter-spacing: 0%;
+margin-top: -8px;
+
+  }
+
+  .waitlist-right {
+    width: 60%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: background-image 1s ease-in-out; /* smooth fade */
+    overflow: hidden;
+  }
+  
+
+
+
+
+
+  /* RIGHT SECTION CONTROLS */
+
+.hide-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  z-index: 5;
+  font-family: Roboto;
+font-weight: 500;
+font-style: Medium;
+font-size: 14px;
+line-height: 140%;
+letter-spacing: 1%;
+text-transform: capitalize;
+}
+
+.menu-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  z-index: 5;
+  font-family: Roboto;
+font-weight: 500;
+font-style: Medium;
+font-size: 14px;
+line-height: 140%;
+letter-spacing: 1%;
+text-transform: capitalize;
+
+}
+
+/* CENTER WHITE BOX */
+
+.waitlist-card {
+  background: #fff;
+  color: #000;
+  padding: 20px;
+  width: 313px;
+  text-align: left;
+  z-index: 2;
+}
+
+.waitlist-card ul {
+  margin: 0px 0;
+}
+
+.waitlist-card li {
+  margin-bottom: 0px;
+  font-family: Roboto;
+font-weight: 400;
+font-style: Regular;
+font-size: 16px;
+line-height: 140%;
+letter-spacing: 0%;
+
+}
+
+.stats {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.stats h1 {
+  font-size: 40px;
+  margin: 5px 0;
+}
+.waitlist-card {
+  width: 313px;
+  height: 528px;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  font-family: "Roboto";
+  margin-top: 40px;
+}
+
+.waitlist-card-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: "Roboto";
+}
+
+.waitlist-heading {
+  font-family: Roboto;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 18px;
+  line-height: 120%;
+  letter-spacing: 1%;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  
+}
+
+.waitlist-features {
+  font-size: 16px;
+  margin: 0 0 8px 0;
+  padding-left: 0;
+  color: #000000;
+  line-height: 140%;
+  letter-spacing: 0%;
+  list-style: none;
+}
+
+.waitlist-features li {
+  margin-bottom: 4px;
+  position: relative;
+  padding-left: 24px;
+}
+
+.waitlist-features li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+  color: #000;
+}
+
+/* This replaces the button's physical presence without showing anything */
+.waitlist-btn-spacer {
+  height: 32px; /* Matches waitlist-cta-btn height */
+  width: 192px;  /* Matches waitlist-cta-btn width */
+  margin-bottom: auto; /* Matches waitlist-cta-btn margin-bottom */
+  visibility: hidden; /* Makes it invisible but keeps its space */
+}
+
+/* Stats section */
+.waitlist-stats-container {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  text-align: right;
+}
+
+.waitlist-stat-box {
+  margin-bottom: 20px;
+}
+
+.waitlist-stat-box:last-child {
+  margin-bottom: 0;
+}
+
+.waitlist-stat-label {
+  color: rgba(0, 0, 0, 1);
+  margin-bottom: 2px;
+  letter-spacing: 0.02em;
+  display: block;
+  font-family: Roboto;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+.waitlist-stat-number {
+  font-family: Roboto;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 56px;
+  line-height: 100%;
+  letter-spacing: -4%;
+  color: rgba(0, 0, 0, 1);
+}
+
+/* IMAGE NAVIGATION */
+
+.image-controls {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  gap: 8px;
+}
+
+.image-controls button {
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+/* LOCATION LABEL */
+
+.location-label {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-family: Roboto;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 14px;
+  line-height: 140%;
+  letter-spacing: 1%;
+  text-align: right;
+  text-transform: capitalize;
+  
+}
+
+/* NOMAD MODAL */
+
+.nomad-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.nomad-modal {
+  background: #fff;
+  padding: 30px;
+  width: 478px;
+  height: 520px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.nomad-option {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.nomad-option:hover {
+  background: #f5f5f5;
+}
+
+
+/* === NOMAD MODAL (DESIGN MATCH) === */
+
+.nomad-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.nomad-modal {
+  background: #fff;
+  width: 478px;
+  height: 520px;
+  padding: 24px;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+}
+
+.nomad-modal h2 {
+  font-family: Roboto;
+font-weight: 400;
+font-style: Regular;
+font-size: 20px;
+line-height: 130%;
+letter-spacing: 0%;
+  margin-bottom: 6px;
+  text-align: left;
+  color: rgba(22, 22, 22, 1);
+}
+
+.modal-subtitle {
+  font-family: Roboto;
+font-weight: 400;
+font-style: Regular;
+font-size: 16px;
+line-height: 150%;
+letter-spacing: 0%;
+color: rgba(87, 87, 87, 1);
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+/* Scroll container */
+.nomad-options-scroll {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  padding-right: 4px;
+}
+.nomad-options-scroll::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari */
+}
+
+/* Options */
+.nomad-option {
+  border: 1px solid rgba(0,0,0,0.2);
+  padding: 20px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: #fff;
+  height: 113px;
+}
+
+.nomad-option h4 {
+  font-size: 14px;
+  margin-bottom: 6px;
+  font-weight: 500;
+  text-align: left;
+}
+
+.nomad-option p {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.4;
+  text-align: left;
+}
+
+/* Selected */
+.nomad-option.active {
+  border: 1px solid rgba(0, 0, 0, 1);
+}
+
+/* Non-selected fade */
+.nomad-option:not(.active) {
+  border-color: rgba(0,0,0,0.2);
+}
+
+/* Button */
+.select-btn {
+  margin-top: 16px;
+  padding: 12px 36px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+
+  font-family: Roboto;
+font-weight: 500;
+font-style: Medium;
+font-size: 16px;
+line-height: 114.99999999999999%;
+letter-spacing: 0%;
+text-align: center;
+
+}
+
+/* Disabled */
+.select-btn.disabled {
+  background: #dcdcdc;
+  color: #777;
+  cursor: not-allowed;
+}
+
+/* Enabled */
+.select-btn.enabled {
+  background: #000;
+  color: #fff;
+}
+
+.nomad-input-wrapper {
+  width: 70%;
+  position: relative;
+  display: flex;
+}
+
+.nomad-input-wrapper input {
+  width: 100%;
+  padding: 12px 48px 12px 12px;
+  border-radius: 4px;
+  border: 1px solid #F0F0F0;
+  background: #FCFCFC;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+
+.nomad-plus {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #999;
+  pointer-events: none;
+}
+
+
+
+/* ---------------------------------------------------------------- */
+
+/* --- ANIMATION KEYFRAMES --- */
+
+/* Entry Animation: From 20px above to center + Fade In */
+@keyframes slideDownIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Exit Animation: From center to 20px above + Fade Out */
+/* Note: Since you use conditional rendering, this will only play if you 
+   use a library like Framer Motion. For raw React, we apply this to the 
+   mounting state. */
+@keyframes slideUpOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+/* --- APPLY TO MODAL --- */
+.nomad-modal {
+  /* ... keep your existing styles ... */
+  animation: slideDownIn 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.nomad-modal-overlay {
+  /* ... keep your existing styles ... */
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(4px); /* Optional: adds a premium feel */
+}
+
+/* --- APPLY TO WAITLIST CARD --- */
+.waitlist-card {
+  /* ... keep your existing styles ... */
+  animation: slideDownIn 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Ensure the Hide/Show button doesn't jump */
+.hide-btn {
+  z-index: 10;
+}
+
+/* Add this class to your JSX when isExitingCard is true */
+.animate-exit {
+  animation: slideUpOut 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards !important;
+}
+
+/* Fade out the dark background overlay alongside the modal */
+.fade-out-overlay {
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+  pointer-events: none; /* Prevent clicks during exit */
+}
+
+/* Ensure the exit animation has priority */
+.animate-exit {
+  animation: slideUpOut 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards !important;
+}
+
+/* Entry animation (keep as is) */
+.waitlist-card, .nomad-modal {
+  animation: slideDownIn 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* ------------------------------------------------Responsive EndPoints---------------------------------------------------------------- */
+
+
+
+/* Tablet Responsive */
+@media (max-width: 890px) and (min-width: 601px) {
+
+  /* ===== ROOT LAYOUT ===== */
+  .waitlist-section {
+    flex-direction: column;
+    height: auto;
+  }
+
+  /* ===== LEFT / FORM AREA ===== */
+  .waitlist-left {
+    width: 100%;
+    height: 100vh;
+    padding: 32px;
+    justify-content: center;        /* 🔥 vertical centering */
+    align-items: center;
+    position: relative;
+  }
+
+  /* LOGO */
+  .heading {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    font-size: 13px;
+  }
+  
+
+  /* MENU (TOP RIGHT) */
+  .menu-btn {
+    position: absolute;   /* 🔥 override fixed */
+    top: 24px;
+    right: 24px;
+    z-index: 9999;
+    color: #000;
+  }
+
+ 
+
+  /* FORM */
+  .waitlist-form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .waitlist-form form {
+    width: 100%;
+    max-width: 360px;
+    align-items: center;
+  }
+
+  .waitlist-form form > input,
+  .waitlist-form form button,
+  .nomad-input-wrapper {
+    width: 100%;
+  }
+
+  .waitlist-bottom {
+    position: absolute;
+    bottom: 32px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;      /* 🔥 stack icon + text */
+    align-items: center;         /* horizontal center */
+    gap: 20px;                   /* 🔥 spacing between arrow & text */
+  }
+  
+  .waitlist-bottom span {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .waitlist-bottom p {
+    text-align: center;
+    margin: 0;
+  }
+  
+
+  /* ===== IMAGE SECTION ===== */
+  .waitlist-right {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+  }
+
+  /* HIDE BUTTON — RIGHT SIDE */
+  .hide-btn {
+    top: 24px;
+    right: 24px;
+    left: auto;
+    color: #fff;
+  }
+
+   /* CENTER CARD */
+   .waitlist-card {
+    width: 300px;
+    height: 500px;
+  }
+
+  .waitlist-heading {
+    font-family: Roboto;
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 16px;
+    line-height: 120%;
+    letter-spacing: 1%;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    
+  }
+  
+  .waitlist-features {
+    font-family: Roboto;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 16px;
+    line-height: 140%;
+    letter-spacing: 0%;
+  }
+
+  .waitlist-stat-label {
+    font-family: Roboto;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    
+    
+  }
+  .waitlist-stat-number {
+    font-family: Roboto;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 40px;
+    line-height: 100%;
+    letter-spacing: -4%;
+    
+  }
+
+}
+
+
+
+
+
+
+/* Large Mobile EndPoint */
+/* Large Mobile = SAME AS TABLET */
+@media (max-width: 600px) and (min-width: 400px) {
+
+  /* ROOT */
+  .waitlist-section {
+    flex-direction: column;
+    height: auto;
+  }
+
+  /* LEFT / FORM */
+  .waitlist-left {
+    width: 100%;
+    height: 100vh;
+    padding: 32px;
+    justify-content: center;     /* 🔥 vertical center */
+    align-items: center;
+    position: relative;
+  }
+
+  /* LOGO */
+  .heading {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    font-size: 12px;
+  }
+
+  /* MENU — EXACTLY LIKE TABLET */
+  .menu-btn {
+    position: absolute;          /* 🔥 NOT fixed */
+    top: 24px;
+    right: 24px;
+    color: #000;
+    z-index: 20;
+  }
+
+  /* FORM */
+  .waitlist-form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .waitlist-form form {
+    width: 100%;
+    max-width: 360px;
+    align-items: center;
+  }
+
+  .waitlist-form form > input,
+  .waitlist-form form button,
+  .nomad-input-wrapper {
+    width: 100%;
+  }
+
+  /* BOTTOM TEXT */
+  .waitlist-bottom {
+    position: absolute;
+    bottom: 32px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .waitlist-bottom span {
+    display: block;
+  }
+
+  /* RIGHT / IMAGE */
+  .waitlist-right {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+  }
+
+  /* HIDE BUTTON */
+  .hide-btn {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    left: auto;
+    color: #fff;
+    z-index: 20;
+  }
+
+  /* CENTER CARD */
+  .waitlist-card {
+    width: 288px;
+    height: 460px;
+  }
+
+  .waitlist-heading {
+    font-family: Roboto;
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 16px;
+    line-height: 120%;
+    letter-spacing: 1%;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    
+  }
+  
+  .waitlist-features {
+    font-family: Roboto;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 16px;
+    line-height: 140%;
+    letter-spacing: 0%;
+  }
+
+  .waitlist-stat-label {
+    font-family: Roboto;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 14px;
+    line-height: 114.99999999999999%;
+    letter-spacing: 1%;
+    
+  }
+  .waitlist-stat-number {
+    font-family: Roboto;
+font-weight: 400;
+font-style: Regular;
+font-size: 40px;
+line-height: 100%;
+letter-spacing: -1.96px;
+
+    
+  }
+}
+
+/* Small Mobile EndPoint */
+/* Small Mobile EndPoint */
+@media (max-width: 399px) and (min-width: 300px) {
+
+  /* ROOT */
+  .waitlist-section {
+    flex-direction: column;
+    height: auto;
+  }
+
+  /* LEFT / FORM */
+  .waitlist-left {
+    width: 100%;
+    height: 100vh;
+    padding: 24px 16px;
+    justify-content: center;      /* same as tablet */
+    align-items: center;
+    position: relative;
+  }
+
+  /* LOGO */
+  .heading {
+    position: absolute;
+    top: 24px;
+    left: 16px;
+    font-size: 11px;
+  }
+
+  /* MENU — SAME AS TABLET */
+  .menu-btn {
+    position: absolute;
+    top: 24px;
+    right: 16px;
+    color: #000;
+    z-index: 20;
+  }
+
+  /* FORM */
+  .waitlist-form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .waitlist-form form {
+    width: 100%;
+    max-width: 340px;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .waitlist-form form > input,
+  .waitlist-form form button,
+  .nomad-input-wrapper {
+    width: 100%;
+  }
+
+  /* 🔥 ONLY DIFFERENCE — BOTTOM LEFT ALIGN */
+  .waitlist-bottom {
+    position: absolute;
+    bottom: 24px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;   /* 👈 LEFT */
+    gap: 20px;
+  }
+
+  .waitlist-bottom p {
+    text-align: left;
+    margin-left: 20px;
+  }
+
+  .waitlist-bottom span {
+    display: block;
+    margin-left: 20px;
+  }
+
+  /* RIGHT / IMAGE */
+  .waitlist-right {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+  }
+
+  /* HIDE BUTTON */
+  .hide-btn {
+    position: absolute;
+    top: 24px;
+    right: 16px;
+    left: auto;
+    color: #fff;
+    z-index: 20;
+  }
+
+  /* CENTER CARD */
+  .waitlist-card {
+    width: 288px;
+    height: 460px;
+  }
+
+  .waitlist-heading {
+    font-family: Roboto;
+font-weight: 500;
+font-style: Medium;
+font-size: 16px;
+line-height: 120%;
+letter-spacing: 1%;
+text-transform: uppercase;
+
+    margin-bottom: 16px;
+    
+  }
+  
+  .waitlist-features {
+    font-family: Roboto;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 16px;
+    line-height: 140%;
+    letter-spacing: 0%;
+    
+  }
+
+  .waitlist-stat-label {
+    font-family: Roboto;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 14px;
+    line-height: 114.99999999999999%;
+    letter-spacing: 1%;
+  }
+  .waitlist-stat-number {
+    font-family: Roboto;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 40px;
+    line-height: 100%;
+    letter-spacing: -4%;
+    
+  }
+}
+

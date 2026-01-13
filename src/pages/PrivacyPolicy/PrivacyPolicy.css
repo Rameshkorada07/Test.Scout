@@ -1,0 +1,259 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+}
+
+.policy-page {
+    background-color: #ffffff;
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    color: #161616;
+}
+
+.policy-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 20px;
+    width: 100%;
+    background-color: #ffffff;
+    z-index: 1000;
+}
+
+.policy-logo {
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 100%;
+    letter-spacing: 1%;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.policy-menu-btn {
+    background: none;
+    border: none;
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 100%;
+    letter-spacing: 1%;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.policy-main-title {
+    max-width: 337px;
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 95%;
+    letter-spacing: -1.96px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 128px;
+}
+
+.policy-container {
+    margin: 0px auto 128px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -30px;
+}
+
+.policy-title-block {
+    display: flex;
+    flex-direction: column; /* Stack Title and Intro vertically */
+    align-items: center;
+    justify-content: center;
+    width: 602px;
+    height: auto; /* Changed from fixed 117px to auto to fit content comfortably */
+    margin: 0 auto 128px auto; /* Centers the block itself */
+}
+
+.policy-intro-text {
+    width: 602px;
+    height: 117px;
+    text-align: center;
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 130%;
+    letter-spacing: -1.16px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.policy-content-list {
+    width: 100%;
+    max-width: 478px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.policy-section-title {
+    font-family: Roboto;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 140%;
+    margin-bottom: 12px;
+    text-transform: capitalize;
+    color: rgba(22, 22, 22, 1);
+}
+
+.policy-section-body {
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 140%;
+    color: rgba(87, 87, 87, 1);
+    white-space: pre-wrap; /* Keeps the list formatting from the object */
+}
+
+/* --- Responsive Queries --- */
+
+/* --- Policy Page Responsive Queries --- */
+
+/* 1. Tablet View (max-width: 890px and min-width: 601px) */
+@media (max-width: 890px) and (min-width: 601px) {
+    .policy-intro-text {
+      width: 560px;
+      height: 117px;
+    }
+  }
+  
+  /* 2. Large Mobile View (max-width: 600px and min-width: 400px) */
+  @media (max-width: 600px) and (min-width: 400px) {
+    .policy-header {
+      padding: 20px 24px;
+    }
+  
+    .policy-container {
+      padding: 0px 20px;
+      margin-top: 0px;
+    }
+  
+    .policy-title-block {
+      width: 100%;
+      max-width: 360px;
+      margin-bottom: 96px;
+    }
+  
+    .policy-main-title {
+      width: 336px;
+      height: 68px;
+      margin-top: 70px;
+      font-size: 32px; /* Matching terms scale */
+      margin-bottom: 46px; /* Overriding base 128px margin */
+    }
+  
+    .policy-intro-text {
+      font-size: 22px;
+      letter-spacing: -0.8px;
+      width: 100%; /* Ensure it doesn't stay fixed at 602px */
+      height: auto;
+    }
+  
+    .policy-content-list {
+      max-width: 100%;
+      gap: 24px;
+    }
+  
+    .policy-section-title {
+      font-family: Roboto;
+      font-weight: 600;
+      font-style: SemiBold;
+      font-size: 16px;
+      line-height: 140%;
+      letter-spacing: 0%;
+      margin-bottom: 12px;
+      text-transform: capitalize;
+      color: rgba(22, 22, 22, 1);
+    }
+  
+    .policy-section-body {
+      font-family: Roboto;
+      font-weight: 400;
+      font-style: Regular;
+      font-size: 16px;
+      line-height: 140%;
+      letter-spacing: 0%;
+      color: rgba(87, 87, 87, 1);
+    }
+  }
+  
+  /* 3. Small Mobile View (max-width: 399px) */
+  @media (max-width: 399px) {
+    .policy-container {
+      padding: 0px 20px;
+      margin-top: 0px;
+    }
+  
+    /* Title block centered and full width */
+    .policy-title-block {
+      width: 100%;
+      max-width: 560px;
+      margin-bottom: 128px;
+    }
+  
+    /* Main Title optimized for small screens */
+    .policy-main-title {
+      width: 100%;
+      max-width: 336px;
+      max-height: 78px; /* Matching terms fixed height cap */
+      font-size: 36px; 
+      line-height: 95%;
+      letter-spacing: -1.16px;
+      text-align: center;
+      margin-top: 70px;
+      margin-bottom: 96px; /* Overriding base 128px margin */
+      text-transform: uppercase;
+    }
+  
+    .policy-intro-text {
+      font-family: Roboto;
+      font-weight: 400;
+      font-style: Regular;
+      font-size: 28px;
+      line-height: 130%;
+      letter-spacing: -1.16px;
+      text-align: center;
+      width: 100%;
+      height: auto;
+    }
+  
+    /* Content list centered horizontally, text left-aligned inside */
+    .policy-content-list {
+      width: 100%;
+      max-width: 100%;
+      gap: 24px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  
+    /* Section text styling for readability */
+    .policy-section-title {
+      font-family: Roboto;
+      font-weight: 500;
+      font-style: SemiBold;
+      font-size: 16px;
+      line-height: 140%;
+      letter-spacing: 0%;
+      margin-bottom: 10px;
+    }
+  
+    .policy-section-body {
+      font-family: Roboto;
+      font-weight: 400;
+      font-style: Regular;
+      font-size: 16px;
+      line-height: 140%;
+      letter-spacing: 0%;
+    }
+  }
