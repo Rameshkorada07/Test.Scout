@@ -416,50 +416,27 @@ useEffect(() => {
   return () => cancelAnimationFrame(animationRef.current);
 }, [isHovered]);
 
-const calculatePosition = (angle) => {
-  // Wide and TALLER ellipse - increased height
-  const rx = 1400; // Horizontal radius (same)
-  const ry = 500;  // Vertical radius (INCREASED from 450 to 600)
+const calculatePosition = (angle, index) => {
+  const rx = 1300; 
+  const ry = 464;  
   
-  // Tilt the oval to the left by rotating coordinates
-  const tiltAngle = -15 * (Math.PI / 180); // -15 degrees tilt
+  const tiltAngle = -15 * (Math.PI / 180); 
   
-  // Calculate position on ellipse
   const x = rx * Math.cos(angle);
   const y = ry * Math.sin(angle);
   
-  // Apply rotation (tilt to left)
   const rotatedX = x * Math.cos(tiltAngle) - y * Math.sin(tiltAngle);
   const rotatedY = x * Math.sin(tiltAngle) + y * Math.cos(tiltAngle);
 
-  // Only show images at top and bottom (hide sides)
-  const cosAngle = Math.cos(angle);
-  const atSides = Math.abs(cosAngle) > 0.5;
-  
-  let visibility = 1;
-  if (atSides) {
-    visibility = 1;
-  } else {
-    visibility = 1 ;
-  }
-
-  // Fixed z-index based on original angle position (no dynamic changes)
-  const normalizedAngle = ((angle % (2 * Math.PI)) + (2 * Math.PI)) % (2 * Math.PI);
-  let zIndex;
-  
-  if (normalizedAngle < Math.PI) {
-    // Top half - higher z-index
-    zIndex = 200 + Math.floor((Math.PI - Math.abs(normalizedAngle - Math.PI / 2)) * 50);
-  } else {
-    // Bottom half - lower z-index
-    zIndex = 100 + Math.floor((Math.PI - Math.abs(normalizedAngle - 3 * Math.PI / 2)) * 50);
-  }
+  // REVERSE STACKING LOGIC:
+  // Higher index = Lower z-index so that left (earlier) overlaps right (later)
+  const zIndex = 500 - index; 
 
   return {
     x: rotatedX,
     y: rotatedY,
-    visibility,
-    zIndex: 100
+    visibility: 1,
+    zIndex: zIndex
   };
 };
 
@@ -720,42 +697,42 @@ const getParallaxSpeed = (index) => {
       </div>
 
       <div className="orbit-container">
-        {imagePositions.map((angle, index) => {
-          const { x, y, visibility, zIndex } = calculatePosition(angle);
-          
-          return (
-            <div
-  key={index}
-  className="orbit-image"
-  style={{
-    transform: `translate(${x}px, ${y}px)`,
-    opacity: visibility,
-    zIndex: zIndex
-  }}
-  onMouseEnter={() => {
-    setIsHovered(true);
-    setHoveredIndex(index);
-  }}
-  onMouseLeave={() => {
-    setIsHovered(false);
-    setHoveredIndex(null);
-  }}
->
-  <div className="image-wrapper">
-    <img src={imageData[index].src} alt={`Nomad ${index + 1}`} />
-
-    {hoveredIndex === index && (
-      <div className="image-overlay">
-        <span className="image-hover-text">
-          {imageData[index].text}
-        </span>
+  {imagePositions.map((angle, index) => {
+    // Pass 'index' here --------------------------v
+    const { x, y, visibility, zIndex } = calculatePosition(angle, index);
+    
+    return (
+      <div
+        key={index}
+        className="orbit-image"
+        style={{
+          transform: `translate(${x}px, ${y}px)`,
+          opacity: visibility,
+          zIndex: zIndex // This will now be 500, 499, 498...
+        }}
+        onMouseEnter={() => {
+          setIsHovered(true);
+          setHoveredIndex(index);
+        }}
+        onMouseLeave={() => {
+          setIsHovered(false);
+          setHoveredIndex(null);
+        }}
+      >
+        <div className="image-wrapper">
+          <img src={imageData[index].src} alt={`Nomad ${index + 1}`} />
+          {hoveredIndex === index && (
+            <div className="image-overlay">
+              <span className="image-hover-text">
+                {imageData[index].text}
+              </span>
+            </div>
+          )}
+        </div>
       </div>
-    )}
-  </div>
+    );
+  })}
 </div>
-          );
-        })}
-      </div>
     </section>
 
       <section className="problems-section" id="problems">

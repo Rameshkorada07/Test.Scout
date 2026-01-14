@@ -11,6 +11,16 @@ const JoinWaitlist = () => {
 
   const navigate = useNavigate();
 
+  const joinBtnRef = useRef(null);
+  const selectBtnRef = useRef(null);
+
+  const handleMouseMove = (e, ref) => {
+    if (!ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    ref.current.style.setProperty('--x', `${x}%`);
+  };
+
   const images = [
     { src: "/waitlist-1.jpg", label: "Aix-en-Provence, France" },
     { src: "/waitlist-2.jpg", label: "Phuket, Thailand" },
@@ -132,7 +142,15 @@ const closeModal = () => {
                 required
               />
 
-              <button type="submit">Join Waitlist</button>
+<button 
+      type="submit" 
+      className="join-waitlist-btn"
+      ref={joinBtnRef}
+      onMouseMove={(e) => handleMouseMove(e, joinBtnRef)}
+    >
+      <div className="cta-fill"></div> {/* Add this div for the fill */}
+      <span>Join Waitlist</span>
+    </button>
             </form>
           )}
         </div>
@@ -204,12 +222,15 @@ const closeModal = () => {
       </div>
 
       <button
-        className={`select-btn ${details.nomadType ? "enabled" : "disabled"}`}
-        disabled={!details.nomadType}
-        onClick={closeModal}
-      >
-        Select
-      </button>
+      className={`select-btn ${details.nomadType ? "enabled" : "disabled"}`}
+      disabled={!details.nomadType}
+      ref={selectBtnRef}
+      onMouseMove={(e) => handleMouseMove(e, selectBtnRef)}
+      onClick={closeModal}
+    >
+      <div className="cta-fill"></div> {/* Add this div for the fill */}
+      <span>Select</span>
+    </button>
 
     </div>
     </div>

@@ -87,7 +87,15 @@ const LoadingReveal = () => {
 //   return () => clearTimeout(timer);
 // }, [isExpanding]);
 
+const buttonRef = useRef(null);
 
+  const handleMouseMove = (e) => {
+    if (!buttonRef.current) return;
+    const rect = buttonRef.current.getBoundingClientRect();
+    // Calculate mouse position as a percentage of button width
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    buttonRef.current.style.setProperty('--x', `${x}%`);
+  };
 
   const getResponsiveDimensions = () => {
     const screenWidth = window.innerWidth;
@@ -426,24 +434,32 @@ const LoadingReveal = () => {
             </section>
 
             <section className="hero-cta-section">
-
-            <button onClick={() => navigate('/join-waitlist')} className="cta-button">
-          <div className="arrows-container">{Array(36).fill(0).map((_, i) => <span key={i} className="arrow">→</span>)}</div>
-          <span>Join waitlist</span>
-        </button>
-
-
-
-
-
-              {/* <button
-                className="hero-cta"
-                onClick={() => navigate("/join-waitlist")}
-              >
-                Join waitlist
-              </button> */}
-              <p className="hero-cta-sub">200+ digital nomads joined</p>
-            </section>
+      <button 
+        ref={buttonRef}
+        className="cta-button"
+        onMouseMove={handleMouseMove}
+        onClick={() => window.location.href = '/join-waitlist'}
+      >
+        {/* The background fill layer */}
+        <div className="cta-fill"></div>
+        
+        {/* The stationary content layer */}
+        <div className="cta-content">
+          <div className="arrows-container">
+            {Array(10).fill(0).map((_, i) => (
+              <span key={i} className="arrow">→</span>
+            ))}
+          </div>
+          <span className="cta-text">Join waitlist</span>
+          <div className="arrows-container">
+            {Array(10).fill(0).map((_, i) => (
+              <span key={i} className="arrow">→</span>
+            ))}
+          </div>
+        </div>
+      </button>
+      <p className="hero-cta-sub">200+ digital nomads joined</p>
+    </section>
           </main>
         </div>
       )}

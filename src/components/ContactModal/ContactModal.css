@@ -134,26 +134,70 @@ color: rgba(87, 87, 87, 1);
   }
   
   .contact-copy-btn {
-    width:364px;
+    width: 364px;
     height: 36px;
     background: #000;
-    color: rgba(255, 255, 255, 1);
-    border: none;
-    font-family: Roboto;
-    font-weight: 500;
-    font-style: Medium;
-    font-size: 16px;
-    line-height: 114.99999999999999%;
-    letter-spacing: 0%;
-    text-align: center;
-    
+    border: 2px solid #000;
+    border-radius: 2px;
     cursor: pointer;
-    transition: opacity 0.2s;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    --x: 50%; /* JS updates this dynamically */
+    transition: border-color 0.3s ease;
+    padding: 0;
+    outline: none;
   }
   
-  .contact-copy-btn:hover {
-    opacity: 0.8;
+  /* The Gooey Fill Animation Layer */
+  .cta-fill {
+    position: absolute;
+    /* Massive width and height ensures total corner coverage */
+    width: 250%; 
+    height: 600%; 
+    background: #ffffff;
+    top: 120%; /* Hidden below button */
+    left: var(--x);
+    transform: translateX(-50%); 
+    border-radius: 50%; 
+    /* Cubic-bezier for the liquid rise effect */
+    transition: top 1.95s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: 1;
+    pointer-events: none;
   }
+  
+  .contact-copy-btn:hover .cta-fill {
+    top: -250%; /* Rises completely through the button */
+  }
+  
+  /* Text Layer - Stationary and centered */
+  .contact-copy-btn span {
+    position: relative;
+    z-index: 2; /* Sits above the white fill */
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #fff;
+    transition: color 0.4s ease;
+    pointer-events: none;
+  }
+  
+  /* Text color flips to black when background becomes white */
+  .contact-copy-btn:hover span {
+    color: #000000;
+  }
+  
+  /* Simple active state */
+  .contact-copy-btn:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+  
+
+  
+
   
   @keyframes fadeIn {
     from { opacity: 0; }
