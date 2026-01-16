@@ -418,7 +418,7 @@ useEffect(() => {
 
 const calculatePosition = (angle, index) => {
   const rx = 1300; 
-  const ry = 464;  
+  const ry = 550;  
   
   const tiltAngle = -15 * (Math.PI / 180); 
   

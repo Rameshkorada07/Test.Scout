@@ -845,6 +845,10 @@ color: rgba(87, 87, 87, 1);
     letter-spacing: -4%;
     
   }
+  .nomad-modal {
+    width: 400px;
+    height: 540px;
+  }
 
 }
 
@@ -983,9 +987,11 @@ font-weight: 400;
 font-style: Regular;
 font-size: 40px;
 line-height: 100%;
-letter-spacing: -1.96px;
-
-    
+letter-spacing: -1.96px;  
+  }
+  .nomad-modal {
+    width: 360px;
+    height: 440px;
   }
 }
 
@@ -1128,7 +1134,10 @@ text-transform: uppercase;
     font-size: 40px;
     line-height: 100%;
     letter-spacing: -4%;
-    
+  }
+  .nomad-modal {
+    width: 280px;
+    height: 510px;
   }
 }
 

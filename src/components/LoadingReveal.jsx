@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import './LoadingReveal.css';
 import { useNavigate } from "react-router-dom";
 
+
 const LoadingReveal = () => {
   const navigate = useNavigate();
 
@@ -447,13 +448,13 @@ const buttonRef = useRef(null);
         <div className="cta-content">
           <div className="arrows-container">
             {Array(10).fill(0).map((_, i) => (
-              <span key={i} className="arrow">→</span>
+              <span key={i} className="arrow"><img src="/arrow.png" alt="" /></span>
             ))}
           </div>
           <span className="cta-text">Join waitlist</span>
           <div className="arrows-container">
             {Array(10).fill(0).map((_, i) => (
-              <span key={i} className="arrow">→</span>
+              <span key={i} className="arrow"></span>
             ))}
           </div>
         </div>
