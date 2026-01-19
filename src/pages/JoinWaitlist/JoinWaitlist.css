@@ -242,11 +242,24 @@ margin-top: -8px;
     background-repeat: no-repeat;
     color: #fff;
     display: flex;
-    align-items: center;
+    align-items: center; /* Keeps the Card in the center */
     justify-content: center;
     position: relative;
-    transition: background-image 1s ease-in-out; /* smooth fade */
+    transition: background-image 1s ease-in-out;
     overflow: hidden;
+  }
+  
+  /* 1. The Overlay Layer */
+  .waitlist-right::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2); 
+    z-index: 1; /* Sits above the image */
+    pointer-events: none; 
   }
   
 

@@ -1963,7 +1963,7 @@ letter-spacing: -1.16px;
   
     .problems-heading h3 {
       width: 100%;
-      max-width: 359px;
+      max-width: 259px;
       max-height: 155px;
       font-family: Roboto;
 font-weight: 400;
@@ -2011,7 +2011,7 @@ letter-spacing: -0.66px;
       display: flex;
       flex-direction: column-reverse;
       align-self: flex-start;
-      margin-top: -20px;
+      margin-top: 30px;
       gap: 20px;
     }
   
@@ -2155,7 +2155,7 @@ text-align: right;
   }
 
   .about-heading h3 {
-    width: 359px;
+    width: 259px;
     height: 186px;
     font-family: Roboto;
 font-weight: 400;

@@ -218,9 +218,12 @@ const handleShuffle = async () => {
   </div>
 
   <div className="footer-socials-new">
-    <a href="#">LINKEDIN</a>
-    <a href="#">INSTAGRAM</a>
-    <a href="#" onClick={() => setIsContactOpen(true)} style={{cursor: 'pointer'}}>CONTACT</a>
+    <a href="https://www.linkedin.com/company/explorenomadglobal/posts/?feedView=all" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
+    <a href="https://www.instagram.com/explorenomad" target="_blank" rel="noopener noreferrer">
+  INSTAGRAM
+</a>
+
+    <a  href="mailto:info@explorenomad.com?subject=Inquiry from ExploreNomad" onClick={() => setIsContactOpen(true)} style={{cursor: 'pointer'}}>CONTACT</a>
   </div>
 
   <div className="footer-nav-new">
